@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Haven: run tests",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "pytest", "tests", "-q"],
+      "options": {"env": {"RETRIEVAL_MODE": "lexical"}},
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Haven: start server",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "uvicorn", "backend.app:app", "--host", "127.0.0.1", "--port", "8000"],
+      "options": {"envFile": "${workspaceFolder}\\.env"},
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}
